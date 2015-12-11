@@ -1,0 +1,36 @@
+<!-- Wide card with share menu button -->
+<style>
+  .demo-card-wide.mdl-card {
+    width: auto;
+  }
+  .demo-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background: url('./assets/images/steamworkshop.png') center / cover;
+  }
+  .demo-card-wide > .mdl-card__menu {
+    color: #fff;
+  }
+</style>
+
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+  </div>
+  <div class="mdl-card__supporting-text">
+    Your Steam backlog. All in one place.
+    Huge backlog? Let us suggest a game to play!
+    Completionist? We can help with that.
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <!-- Simple Textfield -->
+    <form action="#">
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" id="sample1">
+        <label class="mdl-textfield__label" for="sample1">http://steamcommunity.com/id/</label>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+        Go!
+      </button>
+    </form>
+  </div>
+</div>
