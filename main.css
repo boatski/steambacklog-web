@@ -1,3 +1,15 @@
 body {
   background-color: #607D8B;
 }
+
+.demo-card-wide.mdl-card {
+  width: auto;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('./assets/images/steamworkshop.png') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
