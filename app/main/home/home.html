@@ -8,14 +8,17 @@
   </div>
   <div class="mdl-card__actions mdl-card--border">
     <!-- Simple Textfield -->
-    <form action="#">
-      <div class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" type="text" id="sample1">
-        <label class="mdl-textfield__label" for="sample1">http://steamcommunity.com/id/</label>
-      </div>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+    <div class="mdl-textfield mdl-js-textfield">
+      <input
+        #steamid
+        class="mdl-textfield__input"
+        type="text"
+        placeholder="http://steamcommunity.com/id/">
+    </div>
+    <button
+      class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+      (click)="resolveUrl(steamid.value)">
         Go!
-      </button>
-    </form>
+    </button>
   </div>
 </div>
