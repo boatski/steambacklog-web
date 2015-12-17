@@ -1,11 +1,10 @@
 import {Component} from 'angular2/core';
 // import {FORM_DIRECTIVES} from 'angular2/core';
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
+import {Http} from 'angular2/http';
 import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'home',
-  viewProviders: [HTTP_PROVIDERS],
   templateUrl: 'app/main/home/home.html'
 })
 export class HomeComponent {
