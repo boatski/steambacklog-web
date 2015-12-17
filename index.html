@@ -5,23 +5,23 @@
   <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="main.css">
-  <script src="https://code.angularjs.org/tools/system.js"></script>
-  <script src="https://code.angularjs.org/tools/typescript.js"></script>
-  <script src="https://code.angularjs.org/2.0.0-alpha.52/angular2.dev.js"></script>
-  <script src="https://code.angularjs.org/2.0.0-alpha.52/http.dev.js"></script>
+  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="node_modules/angular2/bundles/http.dev.js"></script>
   <script>
-  System.config({
-    packages: {
-            'node_modules': {defaultExtension: 'js'}
-        },
-        paths: {
-            'rxjs/*' : 'node_modules/rxjs/*.js'
-        },
-    transpiler: 'typescript',
-    typescriptOptions: { emitDecoratorMetadata: true }
-  });
-  System.import('app/app.ts');
-  </script>
+      System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
 </head>
 <body>
   <app></app>
