@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
-import {HeaderDrawerComponent} from './drawer/headerDrawer.component';
-import {HeaderFixedComponent} from './fixed/headerFixed.component';
+import {HeaderDrawerComponent} from './drawer/header-drawer.component';
+import {HeaderFixedComponent} from './fixed/header-fixed.component';
 
 @Component({
     selector: 'header',

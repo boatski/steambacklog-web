@@ -4,10 +4,10 @@ import {Http} from 'angular2/http';
 import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'home',
-  templateUrl: 'app/main/home/home.html'
+  selector: 'player-summary',
+  templateUrl: 'app/main/player-summary/player-summary.html'
 })
-export class HomeComponent {
+export class PlayerSummaryComponent {
   constructor(public http: Http) {
 
   }

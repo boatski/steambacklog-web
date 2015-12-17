@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 @Component({
     selector: 'header-drawer',
-    templateUrl: 'app/header/drawer/headerDrawer.html'
+    templateUrl: 'app/header/drawer/header-drawer.html'
 })
 export class HeaderDrawerComponent { }
