@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-// import {FORM_DIRECTIVES} from 'angular2/core';
+import {Router} from 'angular2/router';
 import {Http} from 'angular2/http';
 import 'rxjs/add/operator/map';
 
@@ -8,16 +8,17 @@ import 'rxjs/add/operator/map';
   templateUrl: 'app/main/main.html'
 })
 export class MainComponent {
-  constructor(public http: Http) {
+  constructor(
+    public http: Http,
+    private _router:Router) {
 
   }
-  resolveUrl($event) {
-    var result;
-    console.log('resolving id: ' + 'http://127.0.0.1:3001/summary/' + $event);
-    this.http.get('http://127.0.0.1:3001/summary/' + $event)
-    .map(response => response.json())
-    .subscribe(
-      response => console.log(response)
-    );
+
+  summary(id) {
+    this._router.navigate(['Overview', { id: id }]);
+  }
+
+  ngOnDestroy() {
+    console.log('main component destroyed');
   }
 }

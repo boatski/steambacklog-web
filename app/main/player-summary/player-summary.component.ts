@@ -1,23 +1,24 @@
 import {Component} from 'angular2/core';
-// import {FORM_DIRECTIVES} from 'angular2/core';
-import {Http} from 'angular2/http';
-import 'rxjs/add/operator/map';
+import {RouteParams} from 'angular2/router';
+
+import {SteamBacklogService} from '../../services/steam-backlog.service';
 
 @Component({
   selector: 'player-summary',
   templateUrl: 'app/main/player-summary/player-summary.html'
 })
 export class PlayerSummaryComponent {
-  constructor(public http: Http) {
-
+  constructor(
+    private _routeParams:RouteParams,
+    private _service:SteamBacklogService) {
   }
-  resolveUrl($event) {
-    var result;
-    console.log('resolving id: ' + 'http://127.0.0.1:3001/summary/' + $event);
-    this.http.get('http://127.0.0.1:3001/summary/' + $event)
-    .map(response => response.json())
-    .subscribe(
-      response => console.log(response)
-    );
+
+  ngOnInit() {
+    let id = this._routeParams.get('id');
+    this._service.getPlayerSummary(id);
+  }
+
+  ngOnDestroy() {
+    console.log('summary component destroyed');
   }
 }
