@@ -1,10 +1,11 @@
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title">
+  <div *ngIf="player" class="mdl-card__title">
+    Hi, {{ player.summary.personaname }}
   </div>
   <div class="mdl-card__supporting-text">
     Hi!
   </div>
-  <div class="mdl-card__actions mdl-card--border">
-    Hi!
+  <div *ngIf="player" class="mdl-card__actions mdl-card--border">
+    Player level: {{ player.badges.player_level }}
   </div>
 </div>
