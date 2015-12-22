@@ -9,7 +9,7 @@ import {PlayerSummary} from '../../models/player-summary';
   templateUrl: 'app/main/player-summary/player-summary.html'
 })
 export class PlayerSummaryComponent {
-  public player;
+  public player:PlayerSummary;
 
   constructor(
     private _routeParams:RouteParams,
