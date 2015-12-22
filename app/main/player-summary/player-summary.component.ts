@@ -32,13 +32,9 @@ export class PlayerSummaryComponent {
 
     this._service.getPlayerSummary(id)
     .subscribe(
-      res => this.player = new PlayerSummary(res.playerBadges.response, res.playerBans, res.playerSummary.response.players[0]),
+      res => this.player = new PlayerSummary(res.playerBadges, res.playerBans, res.playerSummary),
       err => console.log(err),
       () => console.log('summary retrieved for: ', this.player)
     );
-  }
-
-  ngOnDestroy() {
-    console.log('summary component destroyed');
   }
 }
