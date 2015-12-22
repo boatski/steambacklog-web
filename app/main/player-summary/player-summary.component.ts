@@ -2,18 +2,7 @@ import {Component} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 
 import {SteamBacklogService} from '../../services/steam-backlog.service';
-
-class PlayerSummary {
-  constructor(
-    public badges: Object,
-    public bans: Object,
-    public summary: Object
-  ) {
-    // console.log('badges', badges);
-    // console.log('bans', bans);
-    // console.log('summary', summary);
-  }
-}
+import {PlayerSummary} from '../../models/player-summary';
 
 @Component({
   selector: 'player-summary',
