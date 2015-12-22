@@ -12,7 +12,8 @@ import {PlayerGamesComponent} from './main/player-games/player-games.component';
       ROUTER_DIRECTIVES,
       HeaderComponent,
       MainComponent,
-      PlayerSummaryComponent
+      PlayerSummaryComponent,
+      PlayerGamesComponent
     ],
     templateUrl: 'app/app.html'
 })
