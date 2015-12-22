@@ -18,7 +18,9 @@ import {PlayerGamesComponent} from './main/player-games/player-games.component';
 })
 @RouteConfig([
   {path:'/', name: 'Main', component: MainComponent},
-  {path:'/summary/:id', name: 'Overview', component: PlayerSummaryComponent}
+  {path:'/summary/:id', name: 'Overview', component: PlayerSummaryComponent},
+  {path:'/games/:id', name: 'Games', component: PlayerGamesComponent}
 ])
 export class AppComponent {
+
 }
