@@ -1,6 +1,5 @@
 import {Component} from 'angular2/core';
 import {Router} from 'angular2/router';
-import {Http} from 'angular2/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -9,7 +8,6 @@ import 'rxjs/add/operator/map';
 })
 export class MainComponent {
   constructor(
-    public http: Http,
     private _router:Router) {
 
   }
