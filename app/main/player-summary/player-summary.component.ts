@@ -1,4 +1,4 @@
-import {Component, EventEmitter} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 
 import {SteamBacklogService} from '../../services/steam-backlog.service';

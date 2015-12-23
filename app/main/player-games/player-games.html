@@ -1,1 +1,25 @@
-player games
+<div class="mdl-grid">
+  <div class="mdl-layout-spacer"></div>
+  <div class="mdl-cell mdl-cell--8-col mdl-card mdl-shadow--2dp">
+    <div *ngIf="games" class="mdl-card__title">
+      {{ games.games.game_count }} games!
+    </div>
+    <div class="mdl-card__supporting-text">
+      <table *ngIf="games" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+          <tr>
+            <th *ngFor="#header of headers" class="mdl-data-table__cell--non-numeric">{{ header }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="#game of games.games.games">
+            <td class="mdl-data-table__cell--non-numeric">{{ game.name }}</td>
+            <td>{{ game.playtime_forever }}</td>
+            <td>{{ game.appid }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="mdl-layout-spacer"></div>
+</div>
