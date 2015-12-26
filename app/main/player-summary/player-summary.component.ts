@@ -14,19 +14,19 @@ export class PlayerSummaryComponent {
   player:PlayerSummary;
 
   constructor(
-    private _routeParams:RouteParams,
-    private _service:SteamBacklogService,
-    private _userService:UserService) {
+    private routeParams:RouteParams,
+    private backlogService:SteamBacklogService,
+    private userService:UserService) {
   }
 
   ngOnInit() {
-    let id = this._routeParams.get('id');
+    let id = this.routeParams.get('id');
 
-    this._service.getPlayerSummary(id)
+    this.backlogService.getPlayerSummary(id)
     .subscribe(
-      res => this.player = new PlayerSummary(res.playerBadges, res.playerBans, res.playerSummary),
+      res => this.player = new PlayerSummary(res.id, res.summary.playerBadges, res.summary.playerBans, res.summary.playerSummary),
       err => console.log(err),
-      () => this._userService.setSteamId(this.player.summary.personaname)
+      () => this.userService.setSteamId(this.player.id)
     );
   }
 }

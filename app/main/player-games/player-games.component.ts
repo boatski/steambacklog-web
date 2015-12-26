@@ -15,20 +15,20 @@ export class PlayerGamesComponent {
   headers = ['Name', 'Playtime', 'App'];
 
   constructor(
-    private _routeParams:RouteParams,
-    private _service:SteamBacklogService,
-    private _userService:UserService) {
+    private routeParams:RouteParams,
+    private backlogService:SteamBacklogService,
+    private userService:UserService) {
 
   }
 
   ngOnInit() {
-    let id = this._routeParams.get('id');
+    let id = this.routeParams.get('id');
 
-    this._service.getPlayerGames(id)
+    this.backlogService.getPlayerGames(id)
     .subscribe(
-      res => this.games = new PlayerGames(res.playerGames),
+      res => this.games = new PlayerGames(res.id, res.games.playerGames),
       err => console.log(err),
-      () => console.log('games retrieved', this.games)
+      () => this.userService.setSteamId(this.games.id)
     );
   }
 }

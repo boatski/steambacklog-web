@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {Router} from 'angular2/router';
-import 'rxjs/add/operator/map';
+
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'main',
@@ -8,15 +9,15 @@ import 'rxjs/add/operator/map';
 })
 export class MainComponent {
   constructor(
-    private _router:Router) {
+    private router:Router,
+    private userService:UserService) {
 
   }
 
   summary(id) {
-    this._router.navigate(['Overview', { id: id }]);
-  }
-
-  ngOnDestroy() {
-    console.log('main component destroyed');
+    if (id.length > 0) {
+      this.userService.setSteamId(id)
+      this.router.navigate(['Overview', { id: id }]);
+    }
   }
 }

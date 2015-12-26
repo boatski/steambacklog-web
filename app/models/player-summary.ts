@@ -1,5 +1,6 @@
 export class PlayerSummary {
   constructor(
+    public id: string,
     public badges: Object,
     public bans: Object,
     public summary: Object
