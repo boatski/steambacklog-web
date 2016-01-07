@@ -26,7 +26,7 @@ export class PlayerGamesComponent {
 
     this.backlogService.getPlayerGames(id)
     .subscribe(
-      res => this.games = new PlayerGames(res.id, res.games.playerGames),
+      res => this.games = new PlayerGames(res.username, res.games.playerGames),
       err => console.log(err),
       () => this.userService.setSteamId(this.games.id)
     );
