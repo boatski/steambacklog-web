@@ -12,7 +12,9 @@ import {PlayerGames} from '../../models/player-games';
 })
 export class PlayerGamesComponent {
   games:PlayerGames;
-  headers = ['Name', 'Playtime', 'App'];
+  gamesTable:Array<Array<Object>>
+
+  steamImageUrl:String = "http://media.steampowered.com/steamcommunity/public/images/apps/"
 
   constructor(
     private routeParams:RouteParams,
@@ -31,4 +33,11 @@ export class PlayerGamesComponent {
       () => this.userService.setSteamId(this.games.id)
     );
   }
+
+  // getLogoUrl(game:any) {
+  //   if (game.length == 0)
+  //     return;
+  //
+  //   return {'background': 'url(' + this.steamImageUrl + game.appid + "/" + game.img_logo_url + '.jpg) center'}
+  // }
 }

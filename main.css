@@ -2,6 +2,11 @@ body {
   background-color: #607D8B;
 }
 
+.games {
+  width: 75%;
+  margin: 0 auto;
+}
+
 .demo-card-wide.mdl-card {
   width: auto;
 }
