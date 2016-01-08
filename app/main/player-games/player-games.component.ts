@@ -12,8 +12,8 @@ import {PlayerGames} from '../../models/player-games';
 })
 export class PlayerGamesComponent {
   games:PlayerGames;
-  gamesTable:Array<Array<Object>>
 
+  steamUrl:String = "http://store.steampowered.com/app/";
   steamImageUrl:String = "http://media.steampowered.com/steamcommunity/public/images/apps/"
 
   constructor(
