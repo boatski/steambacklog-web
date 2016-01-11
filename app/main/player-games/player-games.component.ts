@@ -34,7 +34,7 @@ export class PlayerGamesComponent {
             );
     }
 
-    getAchievements(appid:any) {
+    getAchievements(appid:string) {
         this.router.navigate(['Achievements', {id: this.userService.getSteamId(), appid: appid}]);
     }
 }
