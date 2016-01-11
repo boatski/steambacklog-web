@@ -1,8 +1,6 @@
 export class PlayerGames {
-  constructor(
-    public id: string,
-    public games: Object
-  ) {
+    constructor(public id:string,
+                public games:Object) {
 
-  }
+    }
 }

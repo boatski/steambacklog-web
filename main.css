@@ -1,38 +1,45 @@
 body {
-  background-color: #607D8B;
+    background-color: #607D8B;
 }
 
 .games {
-  width: 75%;
-  margin: 0 auto;
+    width: 75%;
+    margin: 0 auto;
 }
 
 .demo-card-wide.mdl-card {
-  width: auto;
+    width: auto;
 }
+
 .demo-card-wide > .mdl-card__title {
-  color: #fff;
-  height: 176px;
-  background: url('./assets/images/steamworkshop.png') center / cover;
+    color: #fff;
+    height: 176px;
+    background: url('./assets/images/steamworkshop.png') center / cover;
 }
+
 .demo-card-wide > .mdl-card__menu {
-  color: #fff;
+    color: #fff;
 }
+
 .demo-card-event.mdl-card {
-  /*width: 256px;
-  height: 256px;*/
+    /*width: 256px;
+    height: 256px;*/
 }
+
 .demo-card-event > .mdl-card__actions {
-  border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
 }
+
 .demo-card-event > .mdl-card__title {
-  align-items: flex-start;
+    align-items: flex-start;
 }
+
 .demo-card-event > .mdl-card__title > h4 {
-  margin-top: 0;
+    margin-top: 0;
 }
+
 .demo-card-event > .mdl-card__actions {
-  display: flex;
-  box-sizing:border-box;
-  align-items: center;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
 }

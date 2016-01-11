@@ -2,14 +2,16 @@ import {Injectable} from 'angular2/core';
 
 @Injectable()
 export class UserService {
-  private steamid:string;
-  constructor() { }
+    private steamid:string;
 
-  getSteamId() {
-    return this.steamid;
-  }
+    constructor() {
+    }
 
-  setSteamId(id) {
-    this.steamid = id;
-  }
+    getSteamId() {
+        return this.steamid;
+    }
+
+    setSteamId(id) {
+        this.steamid = id;
+    }
 }

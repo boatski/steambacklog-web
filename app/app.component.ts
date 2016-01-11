@@ -10,24 +10,25 @@ import {UserService} from './services/user.service';
 @Component({
     selector: 'app',
     directives: [
-      ROUTER_DIRECTIVES,
-      MainComponent,
-      PlayerSummaryComponent,
-      PlayerGamesComponent
+        ROUTER_DIRECTIVES,
+        MainComponent,
+        PlayerSummaryComponent,
+        PlayerGamesComponent
     ],
     templateUrl: 'app/app.html'
 })
 @RouteConfig([
-  {path:'/', name: 'Main', component: MainComponent},
-  {path:'/summary/:id', name: 'Overview', component: PlayerSummaryComponent},
-  {path:'/games/:id', name: 'Games', component: PlayerGamesComponent}
+    {path: '/', name: 'Main', component: MainComponent},
+    {path: '/summary/:id', name: 'Overview', component: PlayerSummaryComponent},
+    {path: '/games/:id', name: 'Games', component: PlayerGamesComponent}
 ])
 export class AppComponent {
-  steamId:string;
-  constructor(private userService:UserService) {
-  }
+    steamId:string;
 
-  ngDoCheck() {
-    this.steamId = this.userService.getSteamId();
-  }
+    constructor(private userService:UserService) {
+    }
+
+    ngDoCheck() {
+        this.steamId = this.userService.getSteamId();
+    }
 }
