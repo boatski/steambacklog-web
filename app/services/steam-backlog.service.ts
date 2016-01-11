@@ -16,4 +16,9 @@ export class SteamBacklogService {
         return this.http.get('http://127.0.0.1:3001/games/' + id)
             .map(res => res.json());
     }
+
+    getPlayerAchievements(id:string, appid:string) {
+        return this.http.get('http://127.0.0.1:3001/achievements/' + id + '/' + appid)
+            .map(res => res.json());
+    }
 }

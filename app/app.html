@@ -12,7 +12,6 @@
                 <a class="mdl-navigation__link" [routerLink]="['Main']">Home</a>
                 <a *ngIf="steamId" class="mdl-navigation__link" [routerLink]="['Overview', {id: steamId}]">Overview</a>
                 <a *ngIf="steamId" class="mdl-navigation__link" [routerLink]="['Games', {id: steamId}]">Games</a>
-                <a *ngIf="steamId" class="mdl-navigation__link">Achievements</a>
             </nav>
         </div>
         <div class="mdl-layout__drawer">
@@ -21,11 +20,10 @@
                 <a class="mdl-navigation__link" [routerLink]="['Main']">Home</a>
                 <a *ngIf="steamId" class="mdl-navigation__link" [routerLink]="['Overview', {id: steamId}]">Overview</a>
                 <a *ngIf="steamId" class="mdl-navigation__link" [routerLink]="['Games', {id: steamId}]">Games</a>
-                <a *ngIf="steamId" class="mdl-navigation__link" href="">Achievements</a>
             </nav>
         </div>
     </header>
-    <div class="mdl-layout__content">
+    <div class="mdl-layout__content steambacklog">
         <router-outlet></router-outlet>
     </div>
 </div>

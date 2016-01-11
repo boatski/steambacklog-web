@@ -2,13 +2,9 @@ body {
     background-color: #607D8B;
 }
 
-.games {
+.steambacklog {
     width: 75%;
     margin: 0 auto;
-}
-
-.demo-card-wide.mdl-card {
-    width: auto;
 }
 
 .demo-card-wide > .mdl-card__title {

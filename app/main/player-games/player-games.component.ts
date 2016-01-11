@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {RouteParams} from 'angular2/router';
+import {Router, RouteParams} from 'angular2/router';
 
 import {SteamBacklogService} from '../../services/steam-backlog.service';
 import {UserService} from '../../services/user.service';
@@ -16,7 +16,8 @@ export class PlayerGamesComponent {
     steamUrl:String = "http://store.steampowered.com/app/";
     steamImageUrl:String = "http://media.steampowered.com/steamcommunity/public/images/apps/"
 
-    constructor(private routeParams:RouteParams,
+    constructor(private router:Router,
+                private routeParams:RouteParams,
                 private backlogService:SteamBacklogService,
                 private userService:UserService) {
 
@@ -33,10 +34,7 @@ export class PlayerGamesComponent {
             );
     }
 
-    // getLogoUrl(game:any) {
-    //   if (game.length == 0)
-    //     return;
-    //
-    //   return {'background': 'url(' + this.steamImageUrl + game.appid + "/" + game.img_logo_url + '.jpg) center'}
-    // }
+    getAchievements(appid:any) {
+        this.router.navigate(['Achievements', {id: this.userService.getSteamId(), appid: appid}]);
+    }
 }
