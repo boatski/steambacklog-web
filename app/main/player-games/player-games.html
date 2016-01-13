@@ -3,14 +3,16 @@
         <div class="col s12">
             <div class="card white">
                 <div class="card-content">
-                    <span class="card-title">You have {{ games.games.game_count }} games!</span>
-                    <p>blah blah</p>
+                    <span class="card-title center-align">You have {{ games.games.game_count }} games!</span>
+                    <p>Order By: <button (click)="sortOrder='appid'" class="btn">App ID</button> |
+                        <button (click)="sortOrder='name'" class="btn">Name</button> |
+                        <button (click)="sortOrder='playtime_forever'" class="btn">Playtime</button></p>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div *ngFor="#game of games.games.games, #i=index" class="col s3">
+        <div *ngFor="#game of games.games.games | orderBy:sortOrder" class="col s6 m3">
             <div class="card white hoverable">
                 <div class="card-image">
                     <a href="{{ getSteamUrl(game) }}"><img src="{{getLogoUrl(game)}}"></a>

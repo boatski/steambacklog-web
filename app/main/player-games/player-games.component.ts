@@ -8,14 +8,16 @@ import {UtilitiesService} from '../../services/utilities.service';
 import {PlayerGames} from '../../models/player-games';
 
 import {DurationPipe} from '../../pipes/duration.pipe';
+import {OrderByPipe} from '../../pipes/orderBy.pipe';
 
 @Component({
     selector: 'player-games',
     templateUrl: 'app/main/player-games/player-games.html',
-    pipes: [DurationPipe]
+    pipes: [DurationPipe, OrderByPipe]
 })
 export class PlayerGamesComponent {
     games:PlayerGames;
+    sortOrder:string = "name";
 
     constructor(private router:Router,
                 private routeParams:RouteParams,
