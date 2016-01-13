@@ -45,6 +45,10 @@ export class PlayerGamesComponent {
         return "assets/images/blank-game-logo.jpg";
     }
 
+    getSteamUrl(game:any):string {
+        return this.utilitiesService.getSteamUrl(game.appid);
+    }
+
 
     getAchievements(appid:string) {
         this.router.navigate(['Achievements', {id: this.userService.getSteamId(), appid: appid}]);

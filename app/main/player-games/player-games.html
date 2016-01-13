@@ -13,7 +13,7 @@
         <div *ngFor="#game of games.games.games, #i=index" class="col s3">
             <div class="card white hoverable">
                 <div class="card-image">
-                    <img src="{{getLogoUrl(game)}}">
+                    <a href="{{ getSteamUrl(game) }}"><img src="{{getLogoUrl(game)}}"></a>
                     <span *ngIf="!game.img_logo_url" class="card-title black-text">{{ game.name }}</span>
                 </div>
                 <div class="card-content">
