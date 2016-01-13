@@ -1,6 +1,7 @@
 import {AppComponent} from './app.component';
 import {SteamBacklogService} from './services/steam-backlog.service';
 import {UserService} from './services/user.service';
+import {UtilitiesService} from './services/utilities.service';
 
 import {bootstrap}    from 'angular2/platform/browser';
 import {HTTP_PROVIDERS} from 'angular2/http';
@@ -10,5 +11,6 @@ bootstrap(AppComponent, [
     HTTP_PROVIDERS,
     ROUTER_PROVIDERS,
     SteamBacklogService,
-    UserService
+    UserService,
+    UtilitiesService
 ]);

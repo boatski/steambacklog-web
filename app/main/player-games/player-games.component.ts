@@ -3,6 +3,7 @@ import {Router, RouteParams} from 'angular2/router';
 
 import {SteamBacklogService} from '../../services/steam-backlog.service';
 import {UserService} from '../../services/user.service';
+import {UtilitiesService} from '../../services/utilities.service';
 
 import {PlayerGames} from '../../models/player-games';
 
@@ -16,13 +17,11 @@ import {DurationPipe} from '../../pipes/duration.pipe';
 export class PlayerGamesComponent {
     games:PlayerGames;
 
-    steamUrl:String = "http://store.steampowered.com/app/";
-    steamImageUrl:String = "http://media.steampowered.com/steamcommunity/public/images/apps/"
-
     constructor(private router:Router,
                 private routeParams:RouteParams,
                 private backlogService:SteamBacklogService,
-                private userService:UserService) {
+                private userService:UserService,
+                private utilitiesService:UtilitiesService) {
 
     }
 
@@ -40,7 +39,7 @@ export class PlayerGamesComponent {
     // return the url to the game's logo if a filename exists
     getLogoUrl(game:any):string {
         if (game.img_logo_url) {
-            return this.steamImageUrl + game.appid + "/" + game.img_logo_url + ".jpg";
+            return this.utilitiesService.getGameLogoUrl(game.appid, game.img_logo_url);
         }
 
         return "assets/images/blank-game-logo.jpg";
