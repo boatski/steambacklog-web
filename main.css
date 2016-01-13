@@ -2,40 +2,18 @@ body {
     background-color: #607D8B;
 }
 
+img {
+    pointer-events:none;
+}
+
 .steambacklog {
-    width: 75%;
-    margin: 0 auto;
+    /*width: 75%;*/
+    /*margin: 0 auto;*/
 }
 
-.demo-card-wide > .mdl-card__title {
-    color: #fff;
-    height: 176px;
-    background: url('./assets/images/steamworkshop.png') center / cover;
+#steamworkshop {
+    height: 50%;
 }
 
-.demo-card-wide > .mdl-card__menu {
-    color: #fff;
-}
-
-.demo-card-event.mdl-card {
-    /*width: 256px;
-    height: 256px;*/
-}
-
-.demo-card-event > .mdl-card__actions {
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.demo-card-event > .mdl-card__title {
-    align-items: flex-start;
-}
-
-.demo-card-event > .mdl-card__title > h4 {
-    margin-top: 0;
-}
-
-.demo-card-event > .mdl-card__actions {
-    display: flex;
-    box-sizing: border-box;
-    align-items: center;
-}
+/*personastate*/
+/*The user's current status. 0 - Offline, 1 - Online, 2 - Busy, 3 - Away, 4 - Snooze, 5 - looking to trade, 6*/

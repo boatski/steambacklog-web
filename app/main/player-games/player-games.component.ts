@@ -6,9 +6,12 @@ import {UserService} from '../../services/user.service';
 
 import {PlayerGames} from '../../models/player-games';
 
+import {DurationPipe} from '../../pipes/duration.pipe';
+
 @Component({
     selector: 'player-games',
-    templateUrl: 'app/main/player-games/player-games.html'
+    templateUrl: 'app/main/player-games/player-games.html',
+    pipes: [DurationPipe]
 })
 export class PlayerGamesComponent {
     games:PlayerGames;
@@ -33,6 +36,16 @@ export class PlayerGamesComponent {
                 () => this.userService.setSteamId(this.games.id)
             );
     }
+
+    // return the url to the game's logo if a filename exists
+    getLogoUrl(game:any):string {
+        if (game.img_logo_url) {
+            return this.steamImageUrl + game.appid + "/" + game.img_logo_url + ".jpg";
+        }
+
+        return "assets/images/blank-game-logo.jpg";
+    }
+
 
     getAchievements(appid:string) {
         this.router.navigate(['Achievements', {id: this.userService.getSteamId(), appid: appid}]);
