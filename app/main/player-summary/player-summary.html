@@ -12,6 +12,7 @@
                     <p>Last Logoff: {{ getDate(player.summary.lastlogoff) | date }}</p>
                     <p>Steam ID: {{ player.summary.steamid }}</p>
                     <p>Profile URL: {{ player.summary.profileurl }}</p>
+                    <p>Last Update: {{ getDate(player.updated_at) | date }}</p>
                 </div>
             </div>
         </div>

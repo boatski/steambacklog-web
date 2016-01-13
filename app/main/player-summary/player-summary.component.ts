@@ -25,7 +25,13 @@ export class PlayerSummaryComponent {
 
         this.backlogService.getPlayerSummary(id)
             .subscribe(
-                res => this.player = new PlayerSummary(res.username, res.summary.playerBadges, res.summary.playerBans, res.summary.playerSummary, res.summary.playerRecentGames),
+                res => this.player = new PlayerSummary(
+                    res.username,
+                    res.updated_at,
+                    res.summary.playerBadges,
+                    res.summary.playerBans,
+                    res.summary.playerSummary,
+                    res.summary.playerRecentGames),
                 err => console.log(err),
                 () => this.userService.setSteamId(this.player.id)
             );

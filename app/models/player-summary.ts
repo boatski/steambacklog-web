@@ -1,5 +1,6 @@
 export class PlayerSummary {
     constructor(public id:string,
+                public updated_at:string,
                 public badges:Object,
                 public bans:Object,
                 public summary:Object,
