@@ -21,14 +21,14 @@ export class OrderByPipe implements PipeTransform {
 
         array.sort((a: any, b: any) => {
 
-            let left    = a[args[0]];
-            let right   = b[args[0]];
+            let left    = a[column];
+            let right   = b[column];
 
             if (left > right)
-                return 1;
+                return (direction === "+") ? 1 : -1;
 
             if (left < right)
-                return -1
+                return (direction === "+") ? -1 : 1;
 
             return 0;
         });

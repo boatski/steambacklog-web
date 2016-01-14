@@ -17,7 +17,7 @@ import {OrderByPipe} from '../../pipes/orderBy.pipe';
 })
 export class PlayerGamesComponent {
     games:PlayerGames;
-    sortOrder:string = "name";
+    sortOrder:string = "+name";
 
     constructor(private router:Router,
                 private routeParams:RouteParams,
@@ -53,6 +53,17 @@ export class PlayerGamesComponent {
 
 
     getAchievements(appid:string) {
-        this.router.navigate(['Achievements', {id: this.userService.getSteamId(), appid: appid}]);
+        return this.router.navigate(['Achievements', {id: this.userService.getSteamId(), appid: appid}]);
+    }
+
+    getSortOrder(order:string, sortType:string) {
+        let direction = order[0];
+        let column = order.slice(1);
+
+        if (column === sortType) {
+            this.sortOrder = (direction === "+") ? "-" + column : "+" + column;
+        } else {
+            this.sortOrder = "+" + sortType;
+        }
     }
 }
