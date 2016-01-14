@@ -11,9 +11,9 @@ import {Pipe, PipeTransform} from 'angular2/core';
 @Pipe({name: 'duration'})
 export class DurationPipe implements PipeTransform {
 
-    transform(value:number, args:string[]) : any {
-        var duration = (value / 60).toFixed(0);
-
-        return duration + " hours";
+    transform(value:number) : any {
+        let duration = (value / 60).toFixed(0);
+        let hr = (duration === "1") ? " hour" : " hours";
+        return duration + hr;
     }
 }
