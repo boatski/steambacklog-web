@@ -6,29 +6,37 @@
                     <span class="card-title"><h2>You have {{ games.games.game_count }} games!</h2></span>
                     <h5>Order By:</h5>
                     <p>
-                        <button (click)="getSortOrder(sortOrder, 'appid')" class="btn red">App ID</button> |
-                        <button (click)="getSortOrder(sortOrder, 'name')" class="btn red">Name</button> |
-                        <button (click)="getSortOrder(sortOrder, 'playtime_forever')" class="btn red">Playtime</button></p>
+                        <button (click)="getSortOrder(sortOrder, 'appid')" class="waves-effect waves-light btn red">App ID</button> |
+                        <button (click)="getSortOrder(sortOrder, 'name')" class="waves-effect waves-light btn red">Name</button> |
+                        <button (click)="getSortOrder(sortOrder, 'playtime_forever')" class="waves-effect waves-light btn red">Playtime</button></p>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div *ngFor="#game of games.games.games | orderBy:sortOrder" class="col s6 m3">
+        <div *ngFor="#game of games.games.games| orderBy:sortOrder" class="col s6 m3">
             <div class="card white hoverable">
                 <div class="card-image">
                     <a href="{{ getSteamUrl(game) }}"><img src="{{getLogoUrl(game)}}"></a>
                     <span *ngIf="!game.img_logo_url" class="card-title black-text">{{ game.name }}</span>
                 </div>
                 <div class="card-content">
-                    <p>blah blah blah</p>
+                    <p>Playtime: {{ game.playtime_forever | duration }}</p>
                 </div>
-                <div class="card-action">
-                    <div class="chip">
-                        Playtime: {{ game.playtime_forever | duration }}
+                <div class="card-action center-align">
+                    <button class="waves-effect waves-light btn modal-trigger red" (click)="openModal(game)">Achievements</button>
+                    <div id="{{ game.appid }}" class="modal">
+                        <div class="modal-content">
+                            <h4>Modal Header</h4>
+                            <p>A bunch of text</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class=" modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 
 </div>

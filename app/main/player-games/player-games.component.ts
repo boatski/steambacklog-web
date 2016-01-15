@@ -51,6 +51,11 @@ export class PlayerGamesComponent {
         return this.utilitiesService.getSteamUrl(game.appid);
     }
 
+    openModal(game:Object) {
+        //noinspection TypeScriptUnresolvedFunction
+        $('#' + game.appid).openModal();
+    }
+
 
     getAchievements(appid:string) {
         return this.router.navigate(['Achievements', {id: this.userService.getSteamId(), appid: appid}]);
