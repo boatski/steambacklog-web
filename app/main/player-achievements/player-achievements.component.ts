@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 
 import {SteamBacklogService} from '../../services/steam-backlog.service';
@@ -11,23 +11,25 @@ import {PlayerAchievements} from '../../models/player-achievements';
     templateUrl: 'app/main/player-achievements/player-achievements.html'
 })
 export class PlayerAchievementsComponent {
+    @Input() game;
     playerAchievements:PlayerAchievements;
 
-    constructor(private routeParams:RouteParams,
-                private backlogService:SteamBacklogService,
+    constructor(private backlogService:SteamBacklogService,
                 private userService:UserService) {
 
     }
 
     ngOnInit() {
-        let id = this.routeParams.get('id');
-        let appid = this.routeParams.get('appid');
+        console.log('achieve', this.userService.getSteamId(), this.game.appid);
 
-        this.backlogService.getPlayerAchievements(id, appid)
+        this.backlogService.getPlayerAchievements(this.userService.getSteamId(), this.game.appid)
             .subscribe(
                 res => this.playerAchievements = new PlayerAchievements(res.username, res.achievements),
                 err => console.log(err),
                 () => this.userService.setSteamId(this.playerAchievements.id)
             );
+
+        //noinspection TypeScriptUnresolvedFunction
+        $('#' + this.game.appid).openModal();
     }
 }

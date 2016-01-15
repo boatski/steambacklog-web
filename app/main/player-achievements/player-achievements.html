@@ -1,33 +1,18 @@
-<div *ngIf="playerAchievements">
-    <div class="mdl-grid">
-        <div class="mdl-layout-spacer"></div>
-        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title">
-                {{playerAchievements.achievements.gameName}}
-            </div>
-        </div>
-        <div class="mdl-layout-spacer"></div>
-    </div>
 
-    <div class="mdl-grid">
-        <div class="mdl-layout-spacer"></div>
-        <div
-                *ngFor="#achievement of playerAchievements.achievements.availableGameStats.achievements, #i=index"
-                class="mdl-cell mdl-cell--3-col demo-card-square mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title mdl-card--expand">
-                <h2 class="mdl-card__title-text">{{achievement.displayName}}</h2>
-            </div>
-            <div class="mdl-card__supporting-text">
-                Achieved: {{achievement.achieved}}
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-                <!--<a-->
-                        <!--class="mdl-button mdl-button&#45;&#45;colored mdl-js-button mdl-js-ripple-effect"-->
-                        <!--href="{{steamUrl}}{{game.appid}}">-->
-                    <!--Steam-->
-                <!--</a>-->
-            </div>
-        </div>
-        <!-- <div *ngIf="isRightSpacer(i)" class="mdl-layout-spacer"></div> -->
+<div *ngIf="playerAchievements">
+    <div class="modal-content">
+        <h4>{{ game.name }} Achievements</h4>
+        <ul class="collection">
+            <li *ngFor="#achievement of playerAchievements.achievements.availableGameStats.achievements" class="collection-item avatar">
+                <img *ngIf="achievement.achieved === 1" class="circle" src="{{ achievement.icon }}" />
+                <img *ngIf="achievement.achieved === 0" class="circle" src="{{ achievement.icongray }}" />
+                <span class="title">{{ achievement.displayName }}</span>
+                <p>{{ achievement.description }}</p>
+                <a *ngIf="achievement.achieved === 1" class="secondary-content green-text"><i class="material-icons">done</i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class=" modal-action modal-close waves-effect waves-light btn-flat">Close</button>
     </div>
 </div>

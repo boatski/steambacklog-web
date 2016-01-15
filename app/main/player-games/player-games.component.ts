@@ -1,22 +1,30 @@
 import {Component} from 'angular2/core';
 import {Router, RouteParams} from 'angular2/router';
 
+// controllers
+import {PlayerAchievementsComponent} from '../player-achievements/player-achievements.component';
+
+// services
 import {SteamBacklogService} from '../../services/steam-backlog.service';
 import {UserService} from '../../services/user.service';
 import {UtilitiesService} from '../../services/utilities.service';
 
+// models
 import {PlayerGames} from '../../models/player-games';
 
+// pipes
 import {DurationPipe} from '../../pipes/duration.pipe';
 import {OrderByPipe} from '../../pipes/orderBy.pipe';
 
 @Component({
     selector: 'player-games',
     templateUrl: 'app/main/player-games/player-games.html',
+    directives: [PlayerAchievementsComponent],
     pipes: [DurationPipe, OrderByPipe]
 })
 export class PlayerGamesComponent {
     games:PlayerGames;
+    appid:string;
     sortOrder:string = "+name";
 
     constructor(private router:Router,
@@ -49,16 +57,6 @@ export class PlayerGamesComponent {
 
     getSteamUrl(game:any):string {
         return this.utilitiesService.getSteamUrl(game.appid);
-    }
-
-    openModal(game:Object) {
-        //noinspection TypeScriptUnresolvedFunction
-        $('#' + game.appid).openModal();
-    }
-
-
-    getAchievements(appid:string) {
-        return this.router.navigate(['Achievements', {id: this.userService.getSteamId(), appid: appid}]);
     }
 
     getSortOrder(order:string, sortType:string) {

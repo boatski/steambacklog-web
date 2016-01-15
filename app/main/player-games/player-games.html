@@ -24,15 +24,9 @@
                     <p>Playtime: {{ game.playtime_forever | duration }}</p>
                 </div>
                 <div class="card-action center-align">
-                    <button class="waves-effect waves-light btn modal-trigger red" (click)="openModal(game)">Achievements</button>
-                    <div id="{{ game.appid }}" class="modal">
-                        <div class="modal-content">
-                            <h4>Modal Header</h4>
-                            <p>A bunch of text</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button class=" modal-action modal-close waves-effect waves-green btn-flat">Close</button>
-                        </div>
+                    <button class="btn-flat waves-effect modal-trigger" (click)="appid = game.appid">Achievements</button>
+                    <div *ngIf="game.appid === appid" id="{{ game.appid }}" class="modal">
+                        <player-achievements [game]="game"></player-achievements>
                     </div>
                 </div>
             </div>

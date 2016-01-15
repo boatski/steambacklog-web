@@ -4,7 +4,6 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {MainComponent} from './main/main.component';
 import {PlayerSummaryComponent} from './main/player-summary/player-summary.component';
 import {PlayerGamesComponent} from './main/player-games/player-games.component';
-import {PlayerAchievementsComponent} from './main/player-achievements/player-achievements.component';
 
 import {UserService} from './services/user.service';
 
@@ -21,8 +20,8 @@ import {UserService} from './services/user.service';
 @RouteConfig([
     {path: '/', name: 'Main', component: MainComponent},
     {path: '/summary/:id', name: 'Overview', component: PlayerSummaryComponent},
-    {path: '/games/:id', name: 'Games', component: PlayerGamesComponent},
-    {path: '/achievements/:id/:appid', name: 'Achievements', component: PlayerAchievementsComponent}
+    {path: '/games/:id', name: 'Games', component: PlayerGamesComponent}
+    //{path: '/achievements/:id/:appid', name: 'Achievements', component: PlayerAchievementsComponent}
 ])
 export class AppComponent {
     steamId:string;
